@@ -1,8 +1,3 @@
-FROM ubuntu:latest
-LABEL authors="mikke"
-
-ENTRYPOINT ["top", "-b"]
-
 FROM eclipse-temurin:17-alpine
 # This is the jar file that you want to run
 COPY target/app.jar /app.jar
