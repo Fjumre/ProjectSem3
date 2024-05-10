@@ -40,6 +40,7 @@ public class main {
                 .startServer(7007)
                 .setExceptionHandling()
                 .setupAccessManager()
+                .configureCors()
                 .setRoute(getSecurityRoutes())
                 .setRoute(getSecuredRoutes())
                 .setRoute(() -> {
