@@ -83,7 +83,7 @@ public class main {
             before(securityController.authenticate());
             get("/all", userController.getAllUsers(), Role.ADMIN);
             get("/{id}", userController.getUserById(), Role.ADMIN);
-            post("/create", userController.createUser(), Role.ANYONE);
+            post("/create", userController.createUser(), Role.ADMIN, Role.INSTRUCTOR);
             put("/update/{id}", userController.updateUser(), Role.USER, Role.INSTRUCTOR, Role.ADMIN);
             delete("/delete/{id}", userController.deleteUser(), Role.USER, Role.INSTRUCTOR, Role.ADMIN);
             post("/logout", userController.logout(), Role.USER, Role.ADMIN, Role.INSTRUCTOR);

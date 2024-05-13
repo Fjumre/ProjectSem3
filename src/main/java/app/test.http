@@ -63,13 +63,13 @@ GET http://localhost:7007/api/user/6
 
 ###
 
-POST http://localhost:7007/api/user/create
+POST http://localhost:7007/api/auth/register
 
 {
-"name": "Harry",
-"password": "1234",
-"email": "jj@hhhh.com",
-"phoneNumber": 53324422
+"name": "HHH",
+"password": "1678",
+"email": "hk@hhhh.com",
+"phoneNumber": 99324422
 
 }
 
