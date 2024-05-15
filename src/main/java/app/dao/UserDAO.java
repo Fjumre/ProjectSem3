@@ -193,14 +193,14 @@ public class UserDAO implements ISecurityDAO {
 
 
         @Override
-        public User addRoleToUser (String username, String roleName){
+        public User addRoleToUser (String name, String roleName){
 
             EntityManager em = emf.createEntityManager();
 
             User user;
             try {
                 em.getTransaction().begin();
-                user = em.find(User.class, username);
+                user = em.find(User.class, name);
                 Role role = em.find(Role.class, roleName);
 
                 user.addRole(role); // Modify the collection in the managed entity
