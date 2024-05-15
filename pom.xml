@@ -256,7 +256,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>app.main</mainClass> <!-- Replace with your main class -->
+                            <mainClass>app</mainClass> <!-- Replace with your main class -->
                         </manifest>
                     </archive>
                 </configuration>
