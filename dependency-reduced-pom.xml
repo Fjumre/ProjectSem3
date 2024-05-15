@@ -41,7 +41,7 @@
         <configuration>
           <transformers>
             <transformer>
-              <mainClass>app.main</mainClass>
+              <mainClass>app/main</mainClass>
             </transformer>
           </transformers>
           <filters>
@@ -59,7 +59,7 @@
             <manifest>
               <addClasspath>true</addClasspath>
               <classpathPrefix>lib/</classpathPrefix>
-              <mainClass>src.main</mainClass>
+              <mainClass>app/main</mainClass>
             </manifest>
           </archive>
         </configuration>
