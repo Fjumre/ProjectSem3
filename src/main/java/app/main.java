@@ -26,7 +26,7 @@ public class main {
     private static ObjectMapper om = new ObjectMapper();
     public static void main(String[] args) {
 
-        startServer(7007);
+        startServer(7070);
 
     }
 
@@ -37,7 +37,7 @@ public class main {
         ApplicationConfig applicationConfig = ApplicationConfig.getInstance();
         applicationConfig
                 .initiateServer()
-                .startServer(7007)
+                .startServer(7070)
                 .setExceptionHandling()
                 .setupAccessManager()
                 .configureCors()
