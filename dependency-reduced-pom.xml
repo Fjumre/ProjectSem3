@@ -41,7 +41,7 @@
         <configuration>
           <transformers>
             <transformer>
-              <mainClass>app.main</mainClass>
+              <mainClass>app.Main</mainClass>
             </transformer>
           </transformers>
           <filters>
@@ -49,6 +49,19 @@
               <artifact>*:*</artifact>
             </filter>
           </filters>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.2.0</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <classpathPrefix>lib/</classpathPrefix>
+              <mainClass>app.main</mainClass>
+            </manifest>
+          </archive>
         </configuration>
       </plugin>
     </plugins>

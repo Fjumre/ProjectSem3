@@ -8,15 +8,11 @@
     <artifactId>SecurityProjectGroup6</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-
-
     <properties>
         <!-- Project properties  -->
-        <!--  token    -->
         <secret.key>841D8A6C80CBA4FCAD32D5367C18C53B</secret.key>
         <issuer>cphbusiness.dk</issuer>
         <token.expiration.time>3600000</token.expiration.time>
-        <!--  DB    -->
         <db.name>projectsem3</db.name>
         <db.username>postgres</db.username>
         <db.password>postgres</db.password>
@@ -35,8 +31,7 @@
     </properties>
 
     <dependencies>
-        <!--  DB    -->
-
+        <!-- Dependencies go here -->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
@@ -47,19 +42,12 @@
             <artifactId>hibernate-core</artifactId>
             <version>${hibernate-version}</version>
         </dependency>
-
-        <!--  LOMBOK    -->
-
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.28</version>
             <scope>provided</scope>
         </dependency>
-
-
-        <!--  TESTING      -->
-
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
@@ -107,7 +95,6 @@
             <version>${testcontainers.version}</version>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>io.javalin</groupId>
             <artifactId>javalin-bundle</artifactId>
@@ -123,7 +110,6 @@
             <artifactId>slf4j-api</artifactId>
             <version>2.0.7</version>
         </dependency>
-
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
@@ -134,14 +120,12 @@
             <artifactId>jackson-datatype-jsr310</artifactId>
             <version>2.15.0</version>
         </dependency>
-        <!--        https://www.baeldung.com/hamcrest-core-matchers-->
         <dependency>
             <groupId>org.hamcrest</groupId>
             <artifactId>java-hamcrest</artifactId>
             <version>${hamcrest.version}</version>
             <scope>test</scope>
         </dependency>
-        <!--        https://www.baeldung.com/rest-assured-tutorial-->
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
@@ -160,7 +144,6 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
@@ -179,19 +162,15 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
-            <version>2.8.8</version> <!-- or the latest version -->
+            <version>2.8.8</version>
         </dependency>
-
-
         <dependency>
             <groupId> org.apache.cassandra</groupId>
             <artifactId>cassandra-all</artifactId>
             <version>0.8.1</version>
-
             <exclusions>
                 <exclusion>
                     <groupId>org.slf4j</groupId>
@@ -203,8 +182,6 @@
                 </exclusion>
             </exclusions>
         </dependency>
-
-        <!--   Security     -->
         <dependency>
             <groupId>org.mindrot</groupId>
             <artifactId>jbcrypt</artifactId>
@@ -219,13 +196,9 @@
 
     <build>
         <finalName>app</finalName> <!-- This is the name of the jar file -->
-
         <plugins>
-
             <!--  Pom.xml properties plugin  -->
-
             <plugin>
-                <!--  https://www.baeldung.com/java-accessing-maven-properties  -->
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>properties-maven-plugin</artifactId>
                 <version>1.2.1</version>
@@ -241,32 +214,21 @@
                     </execution>
                 </executions>
             </plugin>
-
             <!--   Surefire plugin (Testing)  -->
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0</version>
             </plugin>
-
             <!--   Shade plugin (JAR)  -->
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>3.5.1</version>
                 <configuration>
                     <transformers>
-                        <transformer
-                                implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                            <mainClass>
-                                app.main
-                                <!-- ========================================================= -->
-                                <!-- The plugin needs to know which class has the main method  -->
-                                <!-- therefore we need to specify the path to the main class   -->
-                                <!-- ========================================================= -->
-                            </mainClass>
+                        <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                            <mainClass>app.Main</mainClass> <!-- Replace with your main class -->
                         </transformer>
                     </transformers>
                     <filters>
@@ -283,6 +245,21 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <!-- Maven JAR Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <mainClass>app.main</mainClass> <!-- Replace with your main class -->
+                        </manifest>
+                    </archive>
+                </configuration>
             </plugin>
         </plugins>
     </build>
