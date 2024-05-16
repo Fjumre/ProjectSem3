@@ -231,11 +231,6 @@
                             <mainClass>app.Main</mainClass> <!-- Replace with your Main class -->
                         </transformer>
                     </transformers>
-                    <filters>
-                        <filter> <!-- This filter is needed to avoid a bug in the shade plugin -->
-                            <artifact>*:*</artifact>
-                        </filter>
-                    </filters>
                 </configuration>
             </plugin>
         </plugins>
