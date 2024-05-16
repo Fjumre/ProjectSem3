@@ -23,11 +23,10 @@
         <postgresql.version>42.6.0</postgresql.version>
         <nimbus.version>9.10</nimbus.version>
         <hibernate-version>6.2.4.Final</hibernate-version>
-        <restassured.version>5.3.2</restassured.version>
+        <restassured.version>5.3.0</restassured.version>
         <testcontainers.version>1.19.5</testcontainers.version>
         <junit.version>5.9.1</junit.version>
         <hamcrest.version>2.0.0.0</hamcrest.version>
-        <restassured.version>5.3.0</restassured.version>
     </properties>
 
     <dependencies>
@@ -139,30 +138,6 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-params</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <version>2.8.8</version>
@@ -195,7 +170,7 @@
     </dependencies>
 
     <build>
-        <finalName>app</finalName> <!-- This is the name of the jar file -->
+        <finalName>app</finalName>
         <plugins>
             <!--  Pom.xml properties plugin  -->
             <plugin>
@@ -214,23 +189,26 @@
                     </execution>
                 </executions>
             </plugin>
-            <!--   Surefire plugin (Testing)  -->
+            <!-- Surefire plugin (Testing) -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0</version>
             </plugin>
-            <!--   Shade plugin (JAR)  -->
+
+            <!-- Maven JAR Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>3.5.1</version>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.0</version>
                 <configuration>
-                    <transformers>
-                        <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                            <mainClass>app.Main.main()</mainClass> <!-- Replace with your Main class -->
-                        </transformer>
-                    </transformers>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <mainClass>app.Main</mainClass> <!-- Replace with your main class -->
+                        </manifest>
+                    </archive>
                 </configuration>
             </plugin>
         </plugins>

@@ -44,11 +44,19 @@
               <mainClass>app.Main</mainClass>
             </transformer>
           </transformers>
-          <filters>
-            <filter>
-              <artifact>*:*</artifact>
-            </filter>
-          </filters>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.2.0</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <classpathPrefix>lib/</classpathPrefix>
+              <mainClass>app.Main</mainClass>
+            </manifest>
+          </archive>
         </configuration>
       </plugin>
     </plugins>
@@ -207,12 +215,6 @@
           <groupId>org.hamcrest</groupId>
         </exclusion>
       </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter</artifactId>
-      <version>5.9.1</version>
-      <scope>test</scope>
     </dependency>
   </dependencies>
   <properties>
