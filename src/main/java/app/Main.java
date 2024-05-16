@@ -13,7 +13,7 @@ import jakarta.persistence.EntityManagerFactory;
 import static io.javalin.apibuilder.ApiBuilder.*;
 import static io.javalin.apibuilder.ApiBuilder.get;
 
-public class main {
+public class Main {
 
     private static ISecurityController securityController = new SecurityController();
 

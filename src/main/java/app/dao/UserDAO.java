@@ -147,7 +147,7 @@ public class UserDAO implements ISecurityDAO {
 
         }
 
-//    public static void main(String[] args) {
+//    public static void Main(String[] args) {
 //        EntityManagerFactory emf = HibernateConfig.getEntityManagerFactory();
 //        UserDAO dao = new UserDAO(emf);
 //        User user = dao.createUser("4hh", "1234", "fff@r.com", 55456633);

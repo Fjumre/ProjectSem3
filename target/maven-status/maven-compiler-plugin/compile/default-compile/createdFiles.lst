@@ -6,10 +6,10 @@ app\dao\IDAO.class
 app\dto\TokenDTO.class
 app\exceptions\ValidationMessage.class
 app\model\Category.class
+app\Main.class
 app\config\HibernateConfig.class
 app\exceptions\NotAuthorizedException.class
 app\dao\EventDAO.class
-app\main$Role.class
 app\exceptions\ApiException.class
 app\model\Location.class
 app\model\Event.class
@@ -21,6 +21,7 @@ app\security\RouteRoles.class
 app\utils\TokenUtils.class
 app\controllers\EventController.class
 app\controllers\SecurityController.class
+app\Main$Role.class
 app\controllers\IEventController.class
 app\controllers\UserController.class
 app\config\ApplicationConfig.class
@@ -29,5 +30,4 @@ app\exceptions\EntityNotFoundException.class
 app\model\User.class
 app\exceptions\AuthorizationException.class
 app\dto\EventDTO.class
-app\main.class
 app\controllers\ISecurityController.class
